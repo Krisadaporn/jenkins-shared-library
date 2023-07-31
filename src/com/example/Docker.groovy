@@ -9,7 +9,7 @@ class Docker implements Serializable {
         this.script = script
     }
 
-    def buildDockerImage(String imageName){
+    def buildImage(String imageName){
         script.echo "building the docker image..."
         script.withCredentials([script.usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
             script.sh 'docker build -t krisadaporn/demo-app:java-maven-2.0 .'
